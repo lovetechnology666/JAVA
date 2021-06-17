@@ -1,0 +1,72 @@
+class Animals {
+    public String name;
+    public int age;
+    public Animals(String name){
+        this.name=name;
+        //构造方法中的动态绑定
+        eat();
+    }
+    void eat(){
+        System.out.println("animals吃饭");
+    }
+}
+class Dog extends Animals {
+    public Dog(String name){
+        super(name);
+    }
+    public void sleep(){
+        System.out.println(super.name+"正在睡觉!!!");
+    }
+
+    @Override
+    public void eat(){
+        System.out.println("dog吃饭");
+    }
+}
+
+class Fish extends Animals {
+    public Fish(String name){
+        super(name);
+    }
+    public void swim(){
+        System.out.println(super.name+"swimming");
+    }
+    @Override
+    public void eat(){
+        System.out.println();
+    }
+
+}
+public class TestDemo {
+    public static void func(Animals animals){
+        return;
+    }
+    public static Animals func1(){
+        Fish fish = new Fish("HuiHui");
+        return fish;
+    }
+
+    public static void main(String[] args) {
+        //向上转型
+        Animals animals = new Dog("GaoHui");
+        //动态绑定
+        animals.eat();
+    }
+
+    public static void main1(String[] args) {
+        //向上转型
+        //直接赋值
+        Animals animals=new Dog("DongGe");
+        //方法传参
+        Dog dog = new Dog("JingWen");
+        func(dog);
+        //方法返回
+
+        //向下转型
+        //父类引用给子类的时候，必须进行强制类型转化
+        if(animals instanceof Fish) {
+            Fish fish = (Fish) animals;
+            fish.swim();
+        }
+    }
+}
