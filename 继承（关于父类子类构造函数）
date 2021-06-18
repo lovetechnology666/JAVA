@@ -1,0 +1,44 @@
+class Animals{
+    protected String sex;
+    public String name;
+    public static int age;
+    public int count;
+    public Animals(String name){
+        this.name=name;
+    }
+    //如果没有自己创建的构造函数，有默认的构造函数；一旦有了自己创建的构造函数，默认的构造函数就不存在了
+//    public void eat(){
+//        System.out.println("吃饭!!!");
+//    }
+}
+
+class Dog extends Animals{
+    public String name;
+    public void pre(){
+        System.out.println(super.count);
+        System.out.println(super.sex);
+    }
+    public Dog(){
+        super("huahua");
+        System.out.println(super.name);
+    }
+    //默认的构造函数
+//    public Dog(){
+//        super();
+//    }
+}
+
+class Fish extends Animals{
+    public Fish(String name){
+        super(name);
+    }
+    public void swimming(){
+        System.out.println("游泳!!!");
+    }
+}
+public class TestDemo2{
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        System.out.println(dog.name);
+    }
+}
