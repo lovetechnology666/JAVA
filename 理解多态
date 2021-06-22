@@ -1,0 +1,52 @@
+class Shape{
+    public void draw(){
+
+    }
+}
+class Rect extends Shape{
+    @Override
+    public void draw(){
+        System.out.println("♦");
+    }
+}
+class Cycle extends Shape{
+    @Override
+    public void draw(){
+        System.out.println("●");
+    }
+}
+class Flower extends Shape{
+    @Override
+    public void draw(){
+        System.out.println("❀");
+    }
+}
+
+public class Love {
+    public static void darwMap(Shape shape){
+        //多态
+        //动态绑定
+        shape.draw();
+    }
+    public static void main(String[] args) {
+        Shape shape1 = new Rect();
+        Shape shape2 = new Cycle();
+        darwMap(shape1);
+        darwMap(shape2);
+        draxShaps();
+    }
+
+    public static void draxShaps(){
+        Rect rect = new Rect();
+        Cycle cycle = new Cycle();
+        Flower flower = new Flower();
+        //Shape shapes = rect
+        Shape[]shapes = {rect,cycle,cycle,rect,flower,cycle};//向上转型
+        //Shape[]shapes1={new Rect(),new Cycle(),new Flower()};
+        for(Shape shape : shapes){
+            //多态
+            shape.draw();
+        }
+    }
+
+}
